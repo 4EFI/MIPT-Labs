@@ -1,6 +1,0 @@
-\babel@toc {russian}{}\relax 
-\contentsline {section}{\numberline {1}Теоретическая справка}{3}{}%
-\contentsline {section}{\numberline {2}Экспериментальная установка}{4}{}%
-\contentsline {section}{\numberline {3}Результаты измерений и обработка данных}{5}{}%
-\contentsline {subsection}{\numberline {3.1}Измерение яркостной температуры неоновой лампочки}{6}{}%
-\contentsline {section}{\numberline {4}Заключение}{6}{}%

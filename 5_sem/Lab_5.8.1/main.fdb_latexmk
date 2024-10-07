@@ -1,0 +1,20 @@
+# Fdb version 4
+["pdflatex"] 1728328362.22733 "/home/vladislav/MIPT/MIPT-Labs/5_sem/Lab_5.8.1/main.tex" "main.pdf" "main" 1728328362.38222 2
+  "/home/vladislav/MIPT/MIPT-Labs/5_sem/Lab_5.8.1/main.tex" 1728327494.26854 12085 e2ca2245b760b9363145772575f1030b ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1136768653 1288 655e228510b4c2a1abe905c368440826 ""
+  "/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty" 1644112042 7237 bdd120a32c8fdb4b433cf9ca2e7cd98a ""
+  "/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty" 1572645307 1057 525c2192b5febbd8c1f662c9468335bb ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/article.cls" 1714953600 20144 d5ecf0a5140c8d8d8b72cbe86e320eff ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo" 1714953600 8449 c314623021fbddd0180c05345324933c ""
+  "/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty" 1578002852 41601 9cf6c5257b1bc7af01a58859749dd37a ""
+  "/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty" 1654720880 2671 7e67d78d9b88c845599a85b2d41f2e39 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1714953600 40900 887e0dc8cac988a9e9c574af364cf837 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1728328239 6446975 908a473c18240935eef26e8e7f91749f ""
+  "main.aux" 1728328362.22593 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "main.tex" 1728327494.26854 12085 e2ca2245b760b9363145772575f1030b ""
+  "mathtext.sty" 0 -1 0 ""
+  (generated)
+  "main.aux"
+  "main.log"
+  "main.pdf"
+  (rewritten before read)

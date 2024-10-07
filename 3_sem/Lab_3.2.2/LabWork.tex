@@ -1,0 +1,371 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper,
+total={170mm,257mm},left=2cm,right=2cm,
+top=1cm,bottom=2cm}
+
+\usepackage{mathtext}
+\usepackage{amsmath}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx, float}
+\usepackage{tabularx, colortbl}
+\usepackage{caption}
+\captionsetup{labelsep=period}
+
+\newcommand{\parag}[1]{\paragraph*{#1:}}
+\DeclareSymbolFont{T2Aletters}{T2A}{cmr}{m}{it}
+\newcounter{Points}
+\setcounter{Points}{1}
+\newcommand{\point}{\arabic{Points}. \addtocounter{Points}{1}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\author{Костылев Влад, Б01-208}
+\date{\today}
+\title{Отчет о выполнении лабораторной работы 3.2.2 \\ \textbf{Резонанс напряжений в последовательном контуре} }
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+    \textbf{Цель работы:} исследование резонанса напряжений в последовательном колебательном контуре с изменяемой ёмкостью, получение амплитудно-частотных и фазово-частотных характеристик, определение основных параметров контура. \\
+    
+    \textbf{В работе используются:} генератор сигналов, источник напряжения, нагрузкой которого является последовательный колебательный контур с переменной ёмкостью, двухканальный осциллограф, цифровые вольтметры.
+
+\end{abstract}
+
+\section {Теоретическая справка} 
+
+    \subsection*{Свободные колебания}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\linewidth]{1.png}
+    \end{figure}
+    
+    Рассмотрим последовательный колебательный контур без источника ЭДС.  Пусть напряжение на конденсаторе меняется по закону $U = U(t)$. Тогда, согласно второму правилу Кирхгофа, сумма падений напряжений равна 0:
+    $$
+    L \frac{dI}{dt} + U + RI = 0
+    $$
+    Ток через конденсатор определяется из соотношения
+    $$
+    I = \frac{dq}{dt} = C\frac{dU}{dt}
+    $$
+    Тогда получим дифференциальное уравнения второго порядка, описывающее \textit{свободные колебания} в линейной системе:
+    $$
+    LC \frac{d^2 U}{dt^2} + RC \frac{dU}{dt} + U = 0
+    $$
+    Данное уравнение можно переписать в виде:
+    \begin{equation*}
+    	\ddot{U} + 2\gamma \dot{U} + \omega_0^2 U = 0
+    	\label{eq:diff_eq}
+    \end{equation*}
+    где введены обозначения $\gamma = \frac{R}{2L}$ -- \textit{коэффициент затухания}, $\omega_0 = \frac{2\pi}{T_0} = \frac{1}{\sqrt{LC}}$ -- \textit{собственная частота} колебательной системы, $T_0 = 2\pi \sqrt{LC}$ -- \textit{период собственных колебаний}.
+    
+    Найдём решение однородного дифференциального уравнения с постоянными коэффициентами. Запишем характеристическое уравнение:
+    $$
+    \lambda^2 + 2\gamma \lambda + \omega_0^2 = 0
+    $$
+    $$
+    D_1 = \frac{D}{4} = \gamma^2 - \omega_0^2
+    $$
+    В зависимости от знака дискриминанта квадратного уравнения возможны три случая.
+    
+    \begin{enumerate}
+    \item \textit{Затухающие колебания}.
+	
+	Рассмотрим случай, когда $D_1 < 0$. Тогда $0 < \gamma < \omega_0$, что эквивалентно
+	$$
+	0 < R < 2 \sqrt{\frac{L}{C}} = R_{кр}
+	$$
+	Сопротивление $R_{кр} = 2 \sqrt{\frac{L}{C}}$ называется критическим, а $\rho = \sqrt{\frac{L}{C}}$ -- волновым.
+	
+	В рассматриваемом случае характеристическое уравнение имеет два комплексных корня 
+	$$
+	\lambda_{1,2} = -\gamma \pm j\sqrt{\omega_0^2 - \gamma^2}
+	$$
+	Величину $\omega = \sqrt{\omega_0^2 - \gamma^2}$ называют частотой свободных колебаний. Решением уравнения будет
+	$$
+	U(t) = U_1 \cdot e^{-\gamma t} \cdot e^{-j\omega t} + U_2 \cdot e^{-\gamma t} \cdot e^{j\omega t}
+	$$
+	где $U_1$ и $U_2$ -- произвольные постоянные.
+	
+	Полученное уравнение можно представить в виде
+	\begin{equation*}
+		U(t) = U_0 e^{-\gamma t} sin(\omega t + \varphi_0)
+		\label{eq:damp_osc}
+	\end{equation*}
+	Данное уравнение является гармоническим с фазой $\omega t + \varphi_0$ и экспоненциально убывающей амплитудой $U_0 e^{-\gamma t}$.
+
+	С точки зрения математики данный колебательный процесс не периодичен. Тем не менее функция $U(t)$ обращается в ноль или достигает экстремумов через один и тот же промежуток времени, который называю \textit{периодом затухающих колебаний}.
+	
+	\item \textit{Критический режим}. 
+	
+	Рассмотрим случай, когда $D_1 = 0$. Тогда 
+	$$
+	\gamma = \omega_0
+	$$
+	Характеристическое уравнение имеет один корень
+	$$
+	\lambda = - \gamma
+	$$
+	Решением исходного уравнения будет
+	$$
+	U(t) = U_0 e^{-\gamma t}
+	$$
+	где $U_0$ -- постоянная, определяемая из начальных условий.
+	
+	Заметим, что данный режим физически не реализуем, так как равенство $\gamma = \omega_0$ не может быть выполнено точно. Данный случай нужно рассматривать как переходный между затухающими колебаниями и апериодическим режимом.
+	
+	\item \textit{Апериодический режим}. 
+	
+	Рассмотрим случай, когда $D_1 > 0$. Тогда $0 < \omega_0 < \gamma$. Характеристическое уравнение имеет два действительных корня
+	$$
+	\lambda_{1,2} = -\gamma \pm \sqrt{\omega_0^2 - \gamma^2}
+	$$
+	Решением дифференциального уравнения будет
+	$$
+	U(t) = e^{-\gamma t} \cdot (U_1 e^{-j\omega t} + U_2 e^{j\omega t})
+	$$
+    где $U_1$ и $U_2$ -- произвольные постоянные.
+    \end{enumerate}
+    
+    \subsection*{Характеристики затухающих колебаний}
+    
+    Важными характеристиками колебательных систем являются добротность $Q$ и логарифмический декремент $d$.
+    
+    Логарифм отношения амплитуд колебаний в двух последовательных максимумах называется логарифмическим декрементом
+    $$
+    d = \ln{\left(\frac{A_n}{A_{n+1}}\right)}
+    $$
+    Определив положения последовательных максимумов из формулы $\ref{eq:damp_osc}$, можно получить следующее соотношение
+    \begin{equation*}
+    	d = \gamma T
+    	\label{eq:log_dec}
+    \end{equation*}
+    где $T$ -- период затухающих колебаний.
+    
+    \textit{Постоянной времени затухания} $\tau$ называется время, за которое амплитуда колебаний убывает в $e$ раз. Коэффициент затухания и постоянная времени связаны соотношением
+    \begin{equation*}
+    	\tau = \frac{1}{\gamma}
+    	\label{eq:const_time}
+    \end{equation*}
+    
+    Из уравнений $\ref{eq:log_dec}$ и $\ref{eq:const_time}$ следует, что логарифмический декремент можно определить как число полных колебаний $N = \frac{\tau}{T}$ за время затухания $\tau$:
+    $$
+    d = \frac{1}{N}
+    $$
+    
+    Добротностью колебательной системы $Q$ называется
+    $$
+    Q \equiv \frac{\pi}{d} = \frac{\pi}{\gamma T} = \frac{\omega}{2 \gamma}
+    $$ 
+    Чем выше добротность колебательной системы, тем меньше будут потери энергии. Докажем данное утверждение.
+    
+    Амплитуда колебаний напряжение за период уменьшается в $e^{\gamma T}$ раз. Полная энергия системы $W$ определяется как максимальная энергия электрического поля конденсатора или магнитного поля индуктивности
+    $$
+    W = \frac{CU^2}{2} = \frac{LI^2}{2}
+    $$
+    Из этого соотношения видно, что за период энергия системы уменьшается как квадрат амплитуды в $e^{2\gamma T}$ раз.
+    Тогда потери энергии системы равно
+    $$
+    \Delta W = W(t_0) - W(t_0 + T) = (1 - e^{-2\gamma T}) W(t_0)
+    $$
+    Если затухание мало, то есть $\gamma T \ll 1 \Rightarrow Q \gg 1$, то экспоненту можно разложить по формуле Тейлора
+    $$
+    \Delta W \approx 2 \gamma T W
+    $$
+    $$
+    \frac{W}{\Delta W} = \frac{1}{2\gamma T} = \frac{1}{2\pi}Q
+    $$
+    Таким образом, добротность с энергетической точки зрения определяет отношении энергии системы к потерям за период.
+    
+    \subsection*{Вынужденные колебания}
+    
+    Если в цепь последовательного колебательного контура включен гармонический источник ЭДС $\varepsilon(t) = \varepsilon_0 \cos{(\omega t)}$, то
+    $$
+    \ddot{U} + 2\gamma \dot{U} + \omega_0^2 U = \frac{\varepsilon_0}{LC} \cos{(\omega t)}
+    $$
+    Решением неоднородного дифференциального уравнения будет сумма однородного и частного решений
+    $$
+    U_{общ}(t) = U_{одн}(t) + U_{част}(t)
+    $$
+    Решением однородного уравнения будут затухающие колебания
+    $$
+    U_{одн}(t) = U_0 e^{-\gamma t} sin(\omega t + \varphi_0)
+    $$
+    Частное решение неоднородного уравнения будем искать в виде:
+    $$
+    U_{част}(t) = A e^{j \omega t}
+    $$
+    Неоднородность уравнения в комплексной форме равна
+    $$
+    \varepsilon = \frac{\varepsilon_0}{LC}e^{j \omega t}
+    $$
+    Подставив частное решение в исходное уравнение находим
+    $$
+    U_{част}(t) = \frac{\varepsilon_0 e^{j \omega t}}{LC (\omega_0^2 + 2 j \gamma \omega  - \omega^2)}
+    $$
+    Решением является только действительная часть, тогда
+    $$
+    U_{част}(t) = \frac{\varepsilon_0}{LC} \frac{1}{\sqrt{(\omega_0^2 - \omega^2)^2 + 4 \omega^2 \gamma^2 }} \cos{\left(\omega t - \arctg{\frac{2 \omega \gamma}{\omega_0^2 - \omega^2}}\right)}
+    $$
+    Итого уравнением вынужденных колебаний будет
+    $$
+    U(t) = U_0 e^{-\gamma t} sin(\omega t + \varphi_0) +  \frac{\varepsilon_0}{LC} \frac{1}{\sqrt{(\omega_0^2 - \omega^2)^2 + 4 \omega^2 \gamma^2 }} \cos{\left(\omega t - \arctg{\frac{2 \omega \gamma}{\omega_0^2 - \omega^2}}\right)}
+    $$
+    Заметим, что амплитуда однородного решения убывает экспоненциально, а амплитуда частного решения остается постоянной. Поэтому, через большой промежуток времени, напряжение будет изменяться по закону $U(t) \approx U_{част}(t)$. Итого, установившимися вынужденными колебаниями будут гармонические колебания с частотой вынуждающей ЭДС.
+    
+    \subsection*{Резонанс в последовательном колебательном контуре}
+    
+    Рассмотрим последовательный колебательный контур. Пусть к нему подключен идеальный источник ЭДС, обладающий бесконечно малым внутренним сопротивлением, задающий во внешней цепи напряжение, изменяющееся по гармоническому закону $\varepsilon = \varepsilon_0 \cos{\left(\omega t + \phi_0\right)}$.
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\linewidth]{2.png}
+    \end{figure}
+    
+    Методом комплексных амплитуд определим зависимости напряжения и тока на элементах цепи:
+    \begin{equation*}
+    	\begin{split}
+    		U_C &= \varepsilon_0 \frac{\rho}{Z_0} \frac{\omega_0}{\omega} \cos \left(\omega t - \varphi_C\right) \\
+    		U_L &= \varepsilon_0 \frac{\rho}{Z_0} \frac{\omega}{\omega_0} \cos \left(\omega t - \varphi_L\right) \\
+    		I &= \frac{\varepsilon_0}{Z_0} \cos \left(\omega t - \varphi_I\right) \\
+    		Z_0 &= R \sqrt{1 + \left[\frac{\rho}{R} \left(\frac{\omega}{\omega_0} - \frac{\omega_0}{\omega}\right)\right]^2} \\
+    		\varphi_I &= \arctg{\left[\frac{\rho}{R} (\frac{\omega}{\omega_0} - \frac{\omega_0}{\omega})\right]} \\
+    		\varphi_C &= \varphi_I + \frac{\pi}{2} \\
+    		\varphi_L &= \varphi_I - \frac{\pi}{2}
+    	\end{split}
+    \end{equation*}
+    
+    Далее будем рассматривать высокодобротный колебательный контур вблизи резонансной частоты $Q \approx \frac{\rho}{R} \gg 1$. Тогда полученные уравнения можно упростить:
+    \begin{equation*}
+    	\begin{split}
+    		U_C &= \frac{Q \varepsilon_0 \omega_0}{\omega \sqrt{1 + (\tau \Delta \omega)^2}} \cos \left(\omega t - \varphi_C\right) \\
+    		U_L &= \frac{Q \varepsilon_0 \omega}{\omega_0 \sqrt{1 + (\tau \Delta \omega)^2}} \cos \left(\omega t - \varphi_L\right) \\
+    		I &= \frac{\varepsilon_0}{R \sqrt{1 + (\tau \Delta \omega)^2}} \cos \left(\omega t - \varphi_I\right) \\
+    		Z_0 &= R \sqrt{1 + (\tau \Delta \omega)^2} \\
+    		\varphi_I &= \arctg{\tau \Delta \omega}	
+    	\end{split}
+    \end{equation*}
+    
+    При резонансе $\omega = \omega_0$, $\Delta \omega = 0$ формулы принимают еще более наглядный вид:
+    \begin{equation*}
+    	\begin{split}
+    		I &= \frac{\varepsilon_0}{R} \cos \left( \omega_0 t - \varphi_I \right) \\
+    		U_L &= Q \varepsilon_0 \cos \left( \omega_0 t - \varphi_L \right) \\
+    		U_C &= Q \varepsilon_0 \cos \left( \omega_0 t - \varphi_C \right) \\		
+    		\varphi_I &= 0 \\
+    		\varphi_C &= \frac{\pi}{2} \\
+    		\varphi_L &= -\frac{\pi}{2} \\
+    	\end{split}
+    \end{equation*}
+    
+    Из полученных соотношений следует, что напряжение на конденсаторе $U_C$ отстает от внешнего тока по фазе на $\frac{\pi}{2}$. Напряжение на индуктивности опережает внешний ток по фазе на $\frac{\pi}{2}$.
+    
+    Напряжение на конденсаторе и индуктивности в $Q$ раз больше внешнего напряжения. Поэтому резонанс в последовательном колебательном контуре называют \textit{резонансном напряжений}.
+
+    \subsection*{Экспериментальная установка}
+
+    В данной работе изучаются резонансные явления в последовательном колебательном контуре (резонанс напряжений). Синусоидальный сигнал от генератора поступает на вход управляемого напряжением источника напряжения, собранного на операционном усилителе.
+
+    В колебательный контур установки добавлен постоянный резистор $R$, снижающий его
+    добротность. Это сделано для упрощения процедур получения и обработки резонансных кривых. Таким образом, суммарное активное сопротивление контура принимается равным
+    
+    $$R_{\Sigma} = R + R_L + R_S$$
+    
+    Добротность контуров тем не менее остаётся достаточно высокой, чтобы
+    можно было пользоваться классическими формулами:
+    
+    $$\mathcal{Q} = \frac{\rho}{R_{\Sigma}} = \frac{\omega_0 L}{R_{\Sigma}} 
+    = \frac{1}{\omega_0 C R_{\Sigma}} \gg 1$$
+    
+    При резонансе, когда для высокодобротного контура можно положить $\omega = \omega_0$, выражения для модулей комплексных амплитуд тока и напряжения на ёмкости и их фаз принимают простой вид:
+    
+    $$I(\omega_0) = \frac{E}{R_{\Sigma}},\;\; U_C(\omega_0) = QE, \;\; U_L(\omega_0) = QE$$
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{3.png}
+    \end{figure}
+
+
+\section {Используемое оборудование}
+    \textbf{В работе используются:} генератор сигналов, источник напряжения, нагрузкой которого является последовательный колебательный контур с переменной ёмкостью, двухканальный осциллограф, цифровые вольтметры.
+
+% \section {Методика измерений}
+    
+\section {Результаты измерений и обработка данных} 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{7.jpg}
+    \end{figure}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{5.jpg}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{6.jpg}
+    \end{figure}
+    
+   \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{4.png}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{10.png}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\linewidth]{8.png}
+        \includegraphics[width=0.45\linewidth]{9.png}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.65\linewidth]{11.png}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{12.png}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.65\linewidth]{13.png}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.65\linewidth]{14.png}
+    \end{figure}
+
+    По данному графику рассчитаем добротность:
+
+    \[
+        \dfrac{1}{Q_3} = y_{1/4}-y_{3/4} = 1.028-0.981 \Rightarrow  Q_3 = 21,28 \pm 2,71
+    \]
+
+    \[
+        \dfrac{1}{Q_5} = y_{1/4}-y_{3/4} = 1.032-0.976 \Rightarrow  Q_3 = 17,86 \pm 2,53
+    \]
+
+    Даже похоже на то, что рассчитали ранее :)
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.65\linewidth]{15.png}
+    \end{figure}
+    
+\section {Заключение}
+     В заключение можно сказать, что в данной лабораторной работе мы научились исследованию резонанса напряжений в последовательном колебательном контуре с изменяемой ёмкостью, получению амплитудно-частотных и фазово-частотных характеристик, определению основных параметров контура. 
+    
+\end{document}

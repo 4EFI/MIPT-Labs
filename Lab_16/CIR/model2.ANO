@@ -1,0 +1,3312 @@
+********************************************************************************
+***                       Micro-Cap 12.2.0.5 (64 bit)                        ***
+***                                                                          ***
+***                                                                          ***
+***                          AC Analysis of model2                           ***
+********************************************************************************
+Limits
+======
+Frequency Range          Auto 1E7,10
+Number of Points         51
+Temperature              Linear 27
+Maximum Change %         0.1
+Noise Input              I0
+Noise Output             s
+Run Options              Normal
+State Variables          Zero
+Operating Point          On
+Auto Scale Ranges        On
+Accumulate Plots         Off
+Ignore Expression Errors Off
+
+Stepping Options
+================
+Stepping is Nested
+
+Step What  I0 dc.value
+From       1u
+To         1m
+Step Value 10
+Method     Log
+
+
+
+*****************************************************
+***                Temperature=27                 ***
+***                     I0=1u                     ***
+*****************************************************
+
+Temperature=27 I0=1u
+
+Model parameters for devices of type Diode
+==========================================
+Instance:              D1              D2   
+Using model:     $GENERIC        $GENERIC   
+LEVEL                   1(*)            1(*)
+AF                 1.000 (*)       1.000 (*)
+BV               100.000         100.000    
+CJO                2.500p          2.500p   
+EG                 1.110 (*)       1.110 (*)
+FC               500.000m(*)     500.000m(*)
+IBV              100.000p(*)     100.000p(*)
+IBVL               0.000 (*)       0.000 (*)
+IKF                0.000 (*)       0.000 (*)
+IS                 8.000n          8.000n   
+ISR                0.000 (*)       0.000 (*)
+KF                 0.000 (*)       0.000 (*)
+M                100.000m        100.000m   
+N                  2.000           2.000    
+NBV                1.000 (*)       1.000 (*)
+NBVL               1.000 (*)       1.000 (*)
+NR                 2.000 (*)       2.000 (*)
+RL                 5.000G          5.000G   
+RS               400.000m        400.000m   
+T_ABS           UNDEFINED(*)    UNDEFINED(*)
+T_MEASURED      UNDEFINED(*)    UNDEFINED(*)
+T_REL_GLOBAL    UNDEFINED(*)    UNDEFINED(*)
+T_REL_LOCAL     UNDEFINED(*)    UNDEFINED(*)
+TBV1               0.000 (*)       0.000 (*)
+TBV2               0.000 (*)       0.000 (*)
+TIKF               0.000 (*)       0.000 (*)
+TRS1               0.000 (*)       0.000 (*)
+TRS2               0.000 (*)       0.000 (*)
+TT                 1.000n          1.000n   
+VJ                 5.000m          5.000m   
+XTI                3.000 (*)       3.000 (*)
+(*) Default Parameter
+
+
+
+Model parameters for devices of type Sine Source
+================================================
+Instance:              ES   
+Using model:         1MHZ   
+A                  1.000 (*)
+DC                 0.000 (*)
+F                1.000MEG(*)
+PH                 0.000 (*)
+RP                 0.000 (*)
+RS                 1.000m(*)
+TAU                0.000 (*)
+(*) Default Parameter
+
+
+
+DC Operating Point Voltages
+===========================
+Node         Voltage  Node         Voltage  Node         Voltage 
+1           250.171m  S             0.000   3             0.000  
+E           100.607   5           110.607   6           110.607  
+
+
+Operating Point for Devices of Type Diode
+=========================================
+Instance:                 D1              D2
+Using model:        $GENERIC        $GENERIC
+
+Capacitance Terms:
+CAP                  29.244p         20.259p
+
+Current Terms:
+ID                    1.000u         -1.000m
+
+Resistance Terms:
+REQ                  51.320K         51.730 
+
+Voltage Terms:
+VD                  250.171m       -100.607 
+
+Power DC Terms:
+PD                  250.171n        100.607m
+PS                    0.000           0.000 
+
+DC Pin Currents:
+Id                    1.000u         -1.000m
+
+Condition:
+State                    OFF           ZENER
+
+Device Variables:
+area                  1.000           1.000 
+ic                    0.000           0.000 
+
+
+
+Operating Point for Devices of Type Resistor
+============================================
+Instance:                  R1           ES.RS
+V                     10.000          -1.000u
+Power DC Terms:
+PD                    10.000m          1.000n
+
+DC Pin Currents:
+Ir                     1.000m         -1.000m
+
+Device Variables:
+tc1                    0.000           0.000 
+tc2                    0.000           0.000 
+
+
+
+Operating Point for Devices of Type Capacitor
+=============================================
+Instance:                  C1              C2
+V                    250.171m       -110.607 
+Power DC Terms:
+PS                     0.000           0.000 
+
+DC Pin Currents:
+Ic                     0.000           0.000 
+
+Device Variables:
+ic                     0.000           0.000 
+
+
+
+Operating Point for Devices of Type Sine Source
+===============================================
+Instance:                  ES
+Using model:             1MHZ
+V                     -1.000u
+Power DC Terms:
+PG                     0.000 
+
+DC Pin Currents:
+ISource               -1.000m
+
+
+
+Operating Point for Devices of Type Dependent Source
+====================================================
+Instance:                  H
+V                     0.000 
+Power DC Terms:
+PG                    0.000 
+
+DC Pin Currents:
+ISource               0.000 
+
+
+
+Operating Point for Devices of Type SPICE Source
+================================================
+Instance:                 I0              I1
+V                  -250.171m       -110.607 
+Power DC Terms:
+PG                  250.171n        110.607m
+
+DC Pin Currents:
+ISource               1.000u          1.000m
+
+
+***   NOISE ANALYSIS  FREQUENCY =  10 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.517E-030         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20436e-025 SQ V/HZ
+(ONOISE)                              =  5.66071e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66071e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  11 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.517E-030         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20436e-025 SQ V/HZ
+(ONOISE)                              =  5.66071e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66071e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  13 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.517E-030         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20436e-025 SQ V/HZ
+(ONOISE)                              =  5.66071e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66071e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  17 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.517E-030         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20436e-025 SQ V/HZ
+(ONOISE)                              =  5.66071e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66071e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  25 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.517E-030         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20436e-025 SQ V/HZ
+(ONOISE)                              =  5.66071e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66071e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  41 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.517E-030         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20436e-025 SQ V/HZ
+(ONOISE)                              =  5.66071e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66071e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  73 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.517E-030         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20436e-025 SQ V/HZ
+(ONOISE)                              =  5.66071e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66071e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  137 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.517E-030         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20436e-025 SQ V/HZ
+(ONOISE)                              =  5.66071e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66071e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  265 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.517E-030         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20436e-025 SQ V/HZ
+(ONOISE)                              =  5.66071e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66071e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  521 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.517E-030         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20436e-025 SQ V/HZ
+(ONOISE)                              =  5.66071e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66071e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  1033 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.518E-030         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20436e-025 SQ V/HZ
+(ONOISE)                              =  5.66071e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66071e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  2057 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.518E-030         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20436e-025 SQ V/HZ
+(ONOISE)                              =  5.66071e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66071e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  4105 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.521E-030         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20436e-025 SQ V/HZ
+(ONOISE)                              =  5.66071e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66071e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  8201 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.532E-030         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20436e-025 SQ V/HZ
+(ONOISE)                              =  5.66071e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66071e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  16393 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.578E-030         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20436e-025 SQ V/HZ
+(ONOISE)                              =  5.66071e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66071e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  32777 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.758E-030         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20436e-025 SQ V/HZ
+(ONOISE)                              =  5.66071e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66071e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  65545 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               3.479E-030         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20437e-025 SQ V/HZ
+(ONOISE)                              =  5.66071e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66071e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  131081 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               6.364E-030         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.2044e-025 SQ V/HZ
+(ONOISE)                              =  5.66074e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66074e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  262153 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               1.790E-029         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.205E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20451e-025 SQ V/HZ
+(ONOISE)                              =  5.66084e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66084e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  524297 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               6.405E-029         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.205E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20497e-025 SQ V/HZ
+(ONOISE)                              =  5.66125e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66125e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  1.04859e+006 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.486E-028         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.207E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20682e-025 SQ V/HZ
+(ONOISE)                              =  5.66288e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66288e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  2.09716e+006 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               9.870E-028         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.214E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.2142e-025 SQ V/HZ
+(ONOISE)                              =  5.66939e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66939e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  4.19431e+006 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               3.940E-027         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.244E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.24374e-025 SQ V/HZ
+(ONOISE)                              =  5.69538e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.69538e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  8.38862e+006 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               1.575E-026         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.362E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.36187e-025 SQ V/HZ
+(ONOISE)                              =  5.79817e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.79817e+017 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  1e+007 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.239E-026         0.000 
+ID               3.204E-025         0.000 
+FN                   0.000          0.000 
+TOTAL            3.428E-025         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.4282e-025 SQ V/HZ
+(ONOISE)                              =  5.85508e-013 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.85508e+017 V/RT HZ
+
+
+
+
+
+*****************************************************
+***                Temperature=27                 ***
+***                    I0=10u                     ***
+*****************************************************
+
+Temperature=27 I0=10u
+
+Model parameters for devices of type Diode
+==========================================
+Instance:              D1              D2   
+Using model:     $GENERIC        $GENERIC   
+LEVEL                   1(*)            1(*)
+AF                 1.000 (*)       1.000 (*)
+BV               100.000         100.000    
+CJO                2.500p          2.500p   
+EG                 1.110 (*)       1.110 (*)
+FC               500.000m(*)     500.000m(*)
+IBV              100.000p(*)     100.000p(*)
+IBVL               0.000 (*)       0.000 (*)
+IKF                0.000 (*)       0.000 (*)
+IS                 8.000n          8.000n   
+ISR                0.000 (*)       0.000 (*)
+KF                 0.000 (*)       0.000 (*)
+M                100.000m        100.000m   
+N                  2.000           2.000    
+NBV                1.000 (*)       1.000 (*)
+NBVL               1.000 (*)       1.000 (*)
+NR                 2.000 (*)       2.000 (*)
+RL                 5.000G          5.000G   
+RS               400.000m        400.000m   
+T_ABS           UNDEFINED(*)    UNDEFINED(*)
+T_MEASURED      UNDEFINED(*)    UNDEFINED(*)
+T_REL_GLOBAL    UNDEFINED(*)    UNDEFINED(*)
+T_REL_LOCAL     UNDEFINED(*)    UNDEFINED(*)
+TBV1               0.000 (*)       0.000 (*)
+TBV2               0.000 (*)       0.000 (*)
+TIKF               0.000 (*)       0.000 (*)
+TRS1               0.000 (*)       0.000 (*)
+TRS2               0.000 (*)       0.000 (*)
+TT                 1.000n          1.000n   
+VJ                 5.000m          5.000m   
+XTI                3.000 (*)       3.000 (*)
+(*) Default Parameter
+
+
+
+Model parameters for devices of type Sine Source
+================================================
+Instance:              ES   
+Using model:         1MHZ   
+A                  1.000 (*)
+DC                 0.000 (*)
+F                1.000MEG(*)
+PH                 0.000 (*)
+RP                 0.000 (*)
+RS                 1.000m(*)
+TAU                0.000 (*)
+(*) Default Parameter
+
+
+
+DC Operating Point Voltages
+===========================
+Node         Voltage  Node         Voltage  Node         Voltage 
+1           368.915m  S             0.000   3             0.000  
+E           100.607   5           110.607   6           110.607  
+
+
+Operating Point for Devices of Type Diode
+=========================================
+Instance:                 D1              D2
+Using model:        $GENERIC        $GENERIC
+
+Capacitance Terms:
+CAP                  42.144p         20.259p
+
+Current Terms:
+ID                   10.000u         -1.000m
+
+Resistance Terms:
+REQ                   5.169K         51.730 
+
+Voltage Terms:
+VD                  368.915m       -100.607 
+
+Power DC Terms:
+PD                    3.689u        100.607m
+PS                    0.000           0.000 
+
+DC Pin Currents:
+Id                   10.000u         -1.000m
+
+Condition:
+State                    OFF           ZENER
+
+Device Variables:
+area                  1.000           1.000 
+ic                    0.000           0.000 
+
+
+
+Operating Point for Devices of Type Resistor
+============================================
+Instance:                  R1           ES.RS
+V                     10.000          -1.000u
+Power DC Terms:
+PD                    10.000m          1.000n
+
+DC Pin Currents:
+Ir                     1.000m         -1.000m
+
+Device Variables:
+tc1                    0.000           0.000 
+tc2                    0.000           0.000 
+
+
+
+Operating Point for Devices of Type Capacitor
+=============================================
+Instance:                  C1              C2
+V                    368.915m       -110.607 
+Power DC Terms:
+PS                     0.000           0.000 
+
+DC Pin Currents:
+Ic                     0.000           0.000 
+
+Device Variables:
+ic                     0.000           0.000 
+
+
+
+Operating Point for Devices of Type Sine Source
+===============================================
+Instance:                  ES
+Using model:             1MHZ
+V                     -1.000u
+Power DC Terms:
+PG                     0.000 
+
+DC Pin Currents:
+ISource               -1.000m
+
+
+
+Operating Point for Devices of Type Dependent Source
+====================================================
+Instance:                  H
+V                     0.000 
+Power DC Terms:
+PG                    0.000 
+
+DC Pin Currents:
+ISource               0.000 
+
+
+
+Operating Point for Devices of Type SPICE Source
+================================================
+Instance:                 I0              I1
+V                  -368.915m       -110.607 
+Power DC Terms:
+PG                    3.689u        110.607m
+
+DC Pin Currents:
+ISource              10.000u          1.000m
+
+
+***   NOISE ANALYSIS  FREQUENCY =  10 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.481E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20414e-024 SQ V/HZ
+(ONOISE)                              =  1.79001e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79001e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  11 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.481E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20414e-024 SQ V/HZ
+(ONOISE)                              =  1.79001e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79001e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  13 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.481E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20414e-024 SQ V/HZ
+(ONOISE)                              =  1.79001e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79001e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  17 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.481E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20414e-024 SQ V/HZ
+(ONOISE)                              =  1.79001e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79001e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  25 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.481E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20414e-024 SQ V/HZ
+(ONOISE)                              =  1.79001e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79001e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  41 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.481E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20414e-024 SQ V/HZ
+(ONOISE)                              =  1.79001e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79001e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  73 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.481E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20414e-024 SQ V/HZ
+(ONOISE)                              =  1.79001e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79001e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  137 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.481E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20414e-024 SQ V/HZ
+(ONOISE)                              =  1.79001e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79001e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  265 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.481E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20414e-024 SQ V/HZ
+(ONOISE)                              =  1.79001e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79001e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  521 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.481E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20414e-024 SQ V/HZ
+(ONOISE)                              =  1.79001e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79001e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  1033 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.481E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20414e-024 SQ V/HZ
+(ONOISE)                              =  1.79001e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79001e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  2057 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.481E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20414e-024 SQ V/HZ
+(ONOISE)                              =  1.79001e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79001e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  4105 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.481E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20414e-024 SQ V/HZ
+(ONOISE)                              =  1.79001e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79001e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  8201 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.482E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20414e-024 SQ V/HZ
+(ONOISE)                              =  1.79001e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79001e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  16393 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.483E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20414e-024 SQ V/HZ
+(ONOISE)                              =  1.79001e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79001e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  32777 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.486E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20414e-024 SQ V/HZ
+(ONOISE)                              =  1.79001e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79001e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  65545 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.501E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20414e-024 SQ V/HZ
+(ONOISE)                              =  1.79001e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79001e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  131081 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.561E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20414e-024 SQ V/HZ
+(ONOISE)                              =  1.79001e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79001e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  262153 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.801E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20417e-024 SQ V/HZ
+(ONOISE)                              =  1.79002e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79002e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  524297 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               3.759E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.204E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20426e-024 SQ V/HZ
+(ONOISE)                              =  1.79005e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79005e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  1.04859e+006 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               7.592E-028         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.205E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20465e-024 SQ V/HZ
+(ONOISE)                              =  1.79015e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79015e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  2.09716e+006 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.293E-027         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.206E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20618e-024 SQ V/HZ
+(ONOISE)                              =  1.79058e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79058e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  4.19431e+006 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               8.426E-027         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.212E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.21231e-024 SQ V/HZ
+(ONOISE)                              =  1.79229e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79229e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  8.38862e+006 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               3.296E-026         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.237E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.23684e-024 SQ V/HZ
+(ONOISE)                              =  1.79912e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.79912e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  1e+007 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               4.673E-026         0.000 
+ID               3.204E-024         0.000 
+FN                   0.000          0.000 
+TOTAL            3.251E-024         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.25062e-024 SQ V/HZ
+(ONOISE)                              =  1.80295e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.80295e+018 V/RT HZ
+
+
+
+
+
+*****************************************************
+***                Temperature=27                 ***
+***                    I0=100u                    ***
+*****************************************************
+
+Temperature=27 I0=100u
+
+Model parameters for devices of type Diode
+==========================================
+Instance:              D1              D2   
+Using model:     $GENERIC        $GENERIC   
+LEVEL                   1(*)            1(*)
+AF                 1.000 (*)       1.000 (*)
+BV               100.000         100.000    
+CJO                2.500p          2.500p   
+EG                 1.110 (*)       1.110 (*)
+FC               500.000m(*)     500.000m(*)
+IBV              100.000p(*)     100.000p(*)
+IBVL               0.000 (*)       0.000 (*)
+IKF                0.000 (*)       0.000 (*)
+IS                 8.000n          8.000n   
+ISR                0.000 (*)       0.000 (*)
+KF                 0.000 (*)       0.000 (*)
+M                100.000m        100.000m   
+N                  2.000           2.000    
+NBV                1.000 (*)       1.000 (*)
+NBVL               1.000 (*)       1.000 (*)
+NR                 2.000 (*)       2.000 (*)
+RL                 5.000G          5.000G   
+RS               400.000m        400.000m   
+T_ABS           UNDEFINED(*)    UNDEFINED(*)
+T_MEASURED      UNDEFINED(*)    UNDEFINED(*)
+T_REL_GLOBAL    UNDEFINED(*)    UNDEFINED(*)
+T_REL_LOCAL     UNDEFINED(*)    UNDEFINED(*)
+TBV1               0.000 (*)       0.000 (*)
+TBV2               0.000 (*)       0.000 (*)
+TIKF               0.000 (*)       0.000 (*)
+TRS1               0.000 (*)       0.000 (*)
+TRS2               0.000 (*)       0.000 (*)
+TT                 1.000n          1.000n   
+VJ                 5.000m          5.000m   
+XTI                3.000 (*)       3.000 (*)
+(*) Default Parameter
+
+
+
+Model parameters for devices of type Sine Source
+================================================
+Instance:              ES   
+Using model:         1MHZ   
+A                  1.000 (*)
+DC                 0.000 (*)
+F                1.000MEG(*)
+PH                 0.000 (*)
+RP                 0.000 (*)
+RS                 1.000m(*)
+TAU                0.000 (*)
+(*) Default Parameter
+
+
+
+DC Operating Point Voltages
+===========================
+Node         Voltage  Node         Voltage  Node         Voltage 
+1           488.023m  S             0.000   3             0.000  
+E           100.607   5           110.607   6           110.607  
+
+
+Operating Point for Devices of Type Diode
+=========================================
+Instance:                 D1              D2
+Using model:        $GENERIC        $GENERIC
+
+Capacitance Terms:
+CAP                  56.646p         20.259p
+
+Current Terms:
+ID                  100.000u         -1.000m
+
+Resistance Terms:
+REQ                 517.243          51.730 
+
+Voltage Terms:
+VD                  488.023m       -100.607 
+
+Power DC Terms:
+PD                   48.802u        100.607m
+PS                    0.000           0.000 
+
+DC Pin Currents:
+Id                  100.000u         -1.000m
+
+Condition:
+State                    OFF           ZENER
+
+Device Variables:
+area                  1.000           1.000 
+ic                    0.000           0.000 
+
+
+
+Operating Point for Devices of Type Resistor
+============================================
+Instance:                  R1           ES.RS
+V                     10.000          -1.000u
+Power DC Terms:
+PD                    10.000m          1.000n
+
+DC Pin Currents:
+Ir                     1.000m         -1.000m
+
+Device Variables:
+tc1                    0.000           0.000 
+tc2                    0.000           0.000 
+
+
+
+Operating Point for Devices of Type Capacitor
+=============================================
+Instance:                  C1              C2
+V                    488.023m       -110.607 
+Power DC Terms:
+PS                     0.000           0.000 
+
+DC Pin Currents:
+Ic                     0.000           0.000 
+
+Device Variables:
+ic                     0.000           0.000 
+
+
+
+Operating Point for Devices of Type Sine Source
+===============================================
+Instance:                  ES
+Using model:             1MHZ
+V                     -1.000u
+Power DC Terms:
+PG                     0.000 
+
+DC Pin Currents:
+ISource               -1.000m
+
+
+
+Operating Point for Devices of Type Dependent Source
+====================================================
+Instance:                  H
+V                     0.000 
+Power DC Terms:
+PG                    0.000 
+
+DC Pin Currents:
+ISource               0.000 
+
+
+
+Operating Point for Devices of Type SPICE Source
+================================================
+Instance:                 I0              I1
+V                  -488.023m       -110.607 
+Power DC Terms:
+PG                   48.802u        110.607m
+
+DC Pin Currents:
+ISource             100.000u          1.000m
+
+
+***   NOISE ANALYSIS  FREQUENCY =  10 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.474E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20191e-023 SQ V/HZ
+(ONOISE)                              =  5.65854e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65854e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  11 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.474E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20191e-023 SQ V/HZ
+(ONOISE)                              =  5.65854e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65854e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  13 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.474E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20191e-023 SQ V/HZ
+(ONOISE)                              =  5.65854e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65854e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  17 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.474E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20191e-023 SQ V/HZ
+(ONOISE)                              =  5.65854e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65854e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  25 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.474E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20191e-023 SQ V/HZ
+(ONOISE)                              =  5.65854e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65854e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  41 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.474E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20191e-023 SQ V/HZ
+(ONOISE)                              =  5.65854e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65854e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  73 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.474E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20191e-023 SQ V/HZ
+(ONOISE)                              =  5.65854e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65854e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  137 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.474E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20191e-023 SQ V/HZ
+(ONOISE)                              =  5.65854e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65854e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  265 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.474E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20191e-023 SQ V/HZ
+(ONOISE)                              =  5.65854e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65854e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  521 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.474E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20191e-023 SQ V/HZ
+(ONOISE)                              =  5.65854e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65854e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  1033 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.474E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20191e-023 SQ V/HZ
+(ONOISE)                              =  5.65854e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65854e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  2057 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.474E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20191e-023 SQ V/HZ
+(ONOISE)                              =  5.65854e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65854e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  4105 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.474E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20191e-023 SQ V/HZ
+(ONOISE)                              =  5.65854e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65854e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  8201 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.474E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20191e-023 SQ V/HZ
+(ONOISE)                              =  5.65854e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65854e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  16393 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.474E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20191e-023 SQ V/HZ
+(ONOISE)                              =  5.65854e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65854e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  32777 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.475E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20191e-023 SQ V/HZ
+(ONOISE)                              =  5.65854e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65854e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  65545 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.475E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20191e-023 SQ V/HZ
+(ONOISE)                              =  5.65854e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65854e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  131081 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.476E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20191e-023 SQ V/HZ
+(ONOISE)                              =  5.65854e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65854e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  262153 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.480E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20191e-023 SQ V/HZ
+(ONOISE)                              =  5.65855e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65855e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  524297 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.497E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20193e-023 SQ V/HZ
+(ONOISE)                              =  5.65856e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65856e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  1.04859e+006 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.567E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.202e-023 SQ V/HZ
+(ONOISE)                              =  5.65862e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65862e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  2.09716e+006 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.843E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.202E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20228e-023 SQ V/HZ
+(ONOISE)                              =  5.65887e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65887e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  4.19431e+006 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               3.950E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.203E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.20338e-023 SQ V/HZ
+(ONOISE)                              =  5.65984e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.65984e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  8.38862e+006 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               8.376E-026         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.208E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.2078e-023 SQ V/HZ
+(ONOISE)                              =  5.66375e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66375e+018 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  1e+007 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               1.086E-025         0.000 
+ID               3.199E-023         0.000 
+FN                   0.000          0.000 
+TOTAL            3.210E-023         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.21029e-023 SQ V/HZ
+(ONOISE)                              =  5.66594e-012 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  5.66594e+018 V/RT HZ
+
+
+
+
+
+*****************************************************
+***                Temperature=27                 ***
+***                     I0=1m                     ***
+*****************************************************
+
+Temperature=27 I0=1m
+
+Model parameters for devices of type Diode
+==========================================
+Instance:              D1              D2   
+Using model:     $GENERIC        $GENERIC   
+LEVEL                   1(*)            1(*)
+AF                 1.000 (*)       1.000 (*)
+BV               100.000         100.000    
+CJO                2.500p          2.500p   
+EG                 1.110 (*)       1.110 (*)
+FC               500.000m(*)     500.000m(*)
+IBV              100.000p(*)     100.000p(*)
+IBVL               0.000 (*)       0.000 (*)
+IKF                0.000 (*)       0.000 (*)
+IS                 8.000n          8.000n   
+ISR                0.000 (*)       0.000 (*)
+KF                 0.000 (*)       0.000 (*)
+M                100.000m        100.000m   
+N                  2.000           2.000    
+NBV                1.000 (*)       1.000 (*)
+NBVL               1.000 (*)       1.000 (*)
+NR                 2.000 (*)       2.000 (*)
+RL                 5.000G          5.000G   
+RS               400.000m        400.000m   
+T_ABS           UNDEFINED(*)    UNDEFINED(*)
+T_MEASURED      UNDEFINED(*)    UNDEFINED(*)
+T_REL_GLOBAL    UNDEFINED(*)    UNDEFINED(*)
+T_REL_LOCAL     UNDEFINED(*)    UNDEFINED(*)
+TBV1               0.000 (*)       0.000 (*)
+TBV2               0.000 (*)       0.000 (*)
+TIKF               0.000 (*)       0.000 (*)
+TRS1               0.000 (*)       0.000 (*)
+TRS2               0.000 (*)       0.000 (*)
+TT                 1.000n          1.000n   
+VJ                 5.000m          5.000m   
+XTI                3.000 (*)       3.000 (*)
+(*) Default Parameter
+
+
+
+Model parameters for devices of type Sine Source
+================================================
+Instance:              ES   
+Using model:         1MHZ   
+A                  1.000 (*)
+DC                 0.000 (*)
+F                1.000MEG(*)
+PH                 0.000 (*)
+RP                 0.000 (*)
+RS                 1.000m(*)
+TAU                0.000 (*)
+(*) Default Parameter
+
+
+
+DC Operating Point Voltages
+===========================
+Node         Voltage  Node         Voltage  Node         Voltage 
+1           607.488m  S             0.000   3             0.000  
+E           100.607   5           110.607   6           110.607  
+
+
+Operating Point for Devices of Type Diode
+=========================================
+Instance:                 D1              D2
+Using model:        $GENERIC        $GENERIC
+
+Capacitance Terms:
+CAP                  86.809p         20.259p
+
+Current Terms:
+ID                    1.000m         -1.000m
+
+Resistance Terms:
+REQ                  51.728          51.730 
+
+Voltage Terms:
+VD                  607.488m       -100.607 
+
+Power DC Terms:
+PD                  607.488u        100.607m
+PS                    0.000           0.000 
+
+DC Pin Currents:
+Id                    1.000m         -1.000m
+
+Condition:
+State                     ON           ZENER
+
+Device Variables:
+area                  1.000           1.000 
+ic                    0.000           0.000 
+
+
+
+Operating Point for Devices of Type Resistor
+============================================
+Instance:                  R1           ES.RS
+V                     10.000          -1.000u
+Power DC Terms:
+PD                    10.000m          1.000n
+
+DC Pin Currents:
+Ir                     1.000m         -1.000m
+
+Device Variables:
+tc1                    0.000           0.000 
+tc2                    0.000           0.000 
+
+
+
+Operating Point for Devices of Type Capacitor
+=============================================
+Instance:                  C1              C2
+V                    607.488m       -110.607 
+Power DC Terms:
+PS                     0.000           0.000 
+
+DC Pin Currents:
+Ic                     0.000           0.000 
+
+Device Variables:
+ic                     0.000           0.000 
+
+
+
+Operating Point for Devices of Type Sine Source
+===============================================
+Instance:                  ES
+Using model:             1MHZ
+V                     -1.000u
+Power DC Terms:
+PG                     0.000 
+
+DC Pin Currents:
+ISource               -1.000m
+
+
+
+Operating Point for Devices of Type Dependent Source
+====================================================
+Instance:                  H
+V                     0.000 
+Power DC Terms:
+PG                    0.000 
+
+DC Pin Currents:
+ISource               0.000 
+
+
+
+Operating Point for Devices of Type SPICE Source
+================================================
+Instance:                 I0              I1
+V                  -607.488m       -110.607 
+Power DC Terms:
+PG                  607.488u        110.607m
+
+DC Pin Currents:
+ISource               1.000m          1.000m
+
+
+***   NOISE ANALYSIS  FREQUENCY =  10 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.440E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.17979e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  11 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.440E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.17979e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  13 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.440E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.1798e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  17 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.440E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.1798e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  25 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.440E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.1798e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  41 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.440E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.1798e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  73 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.440E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.1798e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  137 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.440E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.1798e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  265 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.440E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.1798e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  521 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.440E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.1798e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  1033 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.440E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.1798e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  2057 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.440E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.1798e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  4105 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.440E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.1798e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  8201 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.440E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.1798e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  16393 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.440E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.1798e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  32777 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.440E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.1798e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  65545 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.440E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.1798e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  131081 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.440E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.1798e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  262153 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.440E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.1798e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  524297 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.441E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.1798e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  1.04859e+006 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.442E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.17982e-022 SQ V/HZ
+(ONOISE)                              =  1.7832e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.7832e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  2.09716e+006 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.449E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.17988e-022 SQ V/HZ
+(ONOISE)                              =  1.78322e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.78322e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  4.19431e+006 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.474E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.180E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.18013e-022 SQ V/HZ
+(ONOISE)                              =  1.78329e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.78329e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  8.38862e+006 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.577E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.181E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.18115e-022 SQ V/HZ
+(ONOISE)                              =  1.78358e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.78358e+019 V/RT HZ
+
+
+
+***   NOISE ANALYSIS  FREQUENCY =  1e+007 HZ
+
+Diode SQUARED NOISE VOLTAGES (SQ V/HZ)
+======================================
+Instance:                D1             D2
+Using model:       $GENERIC       $GENERIC
+RS               2.634E-024         0.000 
+ID               3.155E-022         0.000 
+FN                   0.000          0.000 
+TOTAL            3.182E-022         0.000 
+
+
+Resistor SQUARED NOISE VOLTAGES (SQ V/HZ)
+=========================================
+Instance:                R1          ES.RS
+TOTAL                0.000          0.000 
+
+
+TOTAL OUTPUT NOISE VOLTAGE            =  3.18172e-022 SQ V/HZ
+(ONOISE)                              =  1.78374e-011 V/RT HZ
+TRANSFER FUNCTION VALUE:
+V(OUT)/V1                             =  0
+EQUIVALENT INPUT NOISE AT V1 (INOISE) =  1.78374e+019 V/RT HZ
+
+
+
+

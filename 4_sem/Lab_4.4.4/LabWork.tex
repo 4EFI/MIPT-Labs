@@ -1,0 +1,122 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper,
+total={170mm,257mm},left=2cm,right=2cm,
+top=1cm,bottom=2cm}
+
+\usepackage{mathtext}
+\usepackage{amsmath}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx, float}
+\usepackage{tabularx, colortbl}
+\usepackage{caption}
+\captionsetup{labelsep=period}
+
+\newcommand{\parag}[1]{\paragraph*{#1:}}
+\DeclareSymbolFont{T2Aletters}{T2A}{cmr}{m}{it}
+\newcounter{Points}
+\setcounter{Points}{1}
+\newcommand{\point}{\arabic{Points}. \addtocounter{Points}{1}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\author{Костылев Влад, Б01-208}
+\date{\today}
+\title{Отчет о выполнении лабораторной работы 4.4.4 \\ \textbf{Интерферометр Фабри—Перо} }
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+    \textbf{Цель работы:} измерение длины волны жёлтых линий ртути, жёлтого дублета натрия, определение спектральных характеристик интерферометра Фабри—Перо.\\
+    
+    \textbf{В работе используются:} интерферометр Фабри—Перо, линзы, светофильтры, ртутная и натриевая лампы, катетометр КН-6.
+\end{abstract}
+
+%\section {Теоретическая справка} 
+
+\section {Используемое оборудование}
+    \textbf{В работе используются:} интерферометр Фабри—Перо, линзы, светофильтры, ртутная и натриевая лампы, катетометр КН-6.
+
+% \section {Методика измерений}
+    
+    
+\section {Результаты измерений и обработка данных} 
+\subsection*{Ртутная лампа:}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{1.png}
+    \end{figure}
+
+    По экспериментальным данным построим график для зеленой линии ртути ($\lambda(Hg) = 5461 A$):
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{2.png}
+    \end{figure}
+
+    Рассчитаем базу L интерферометра: 
+    \[
+        L = \dfrac{4\lambda f^2}{k} = (1.07\pm0.02)*10^{-4} м
+    \]
+
+\subsection*{Натриевая лампа:}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{3.png}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{4.png}
+    \end{figure}
+
+    Рассчитаем базу L интерферометра ($\lambda(Na) = 5893 A$): 
+    \[
+        L = \dfrac{4\lambda f^2}{k} = (1.78\pm0.02)*10^{-4} м
+    \]
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{6.png}
+    \end{figure}
+
+    По углу наклона данного графика найдем разность длин волн для желтой пары линий: 
+    \[
+        \triangle \lambda = \dfrac{\lambda k}{4f^2} = (3.68\pm0.23)A
+    \]
+
+    Теперь оценим экспериментальное значение линейной дисперсии интерферометра для натрия (i = 5): 
+    \[
+        D^{*}_{эксп} = \dfrac{\triangle d}{2 \triangle \lambda} = 0.15\pm0.01 мм/А
+    \]
+    \[
+        D^{*}_{теор} = \dfrac{2f^2}{\lambda d} = 0.14 мм/А
+    \]
+
+    Оценим аппаратную разрешающую способность по формуле:
+    \[
+        R_{апп} = \dfrac{4f^2}{d \delta r}
+    \]
+    \[
+        R_{Na} \approx 11800\;\:\:\;\;\:\:\; R_{Hg} \approx 2600 
+    \]
+
+    \[
+        \Rightarrow N_{Na} \approx \dfrac{R_{апп}}{m} = 2340 \;\:\:\;\;\:\:\; N_{Hg} \approx 520
+    \]
+
+    Рассчитаем теоретическое значение добротностей интерферометров:
+    \[
+        Q = \dfrac{2\pi L}{\lambda(1-r)}
+    \]
+    \[
+        Q_{Na} = 12646\pm872\;\:\:\;\;\:\:\; Q_{Hg} = 8203\pm465
+    \]
+    
+\section {Заключение}
+    В заключение можно сказать, что в данной лабораторной работе мы изучили измерение длины волны жёлтых линий ртути, жёлтого дублета натрия и определение спектральных характеристик интерферометра Фабри—Перо.
+    
+\end{document}

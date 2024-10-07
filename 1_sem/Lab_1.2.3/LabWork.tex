@@ -1,0 +1,264 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper,
+total={170mm,257mm},left=2cm,right=2cm,
+top=1cm,bottom=2cm}
+
+\usepackage{mathtext}
+\usepackage{amsmath}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx, float}
+\usepackage{tabularx, colortbl}
+\usepackage{caption}
+\captionsetup{labelsep=period}
+
+\newcommand{\parag}[1]{\paragraph*{#1:}}
+\DeclareSymbolFont{T2Aletters}{T2A}{cmr}{m}{it}
+\newcounter{Points}
+\setcounter{Points}{1}
+\newcommand{\point}{\arabic{Points}. \addtocounter{Points}{1}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\author{Костылев Влад, Б01-208}
+\date{\today}
+\title{Отчет о выполнении лабораторной работы 1.2.3 \\ \textbf{Определение моментов инерции твердых тел с помощью трифилярного подвеса} }
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+    \textbf{Цель работы:} измерение момента инерции тел и сравнение результатов с расчётами по теоретическим формулам; проверка аддитивности моментов инерции и справедливости формулы Гюйгенса-Штейнера.\\
+    
+    \textbf{В работе используются:} трифилярный подвес, секундомер, счетчик числа колебаний, набор тел, момент инерции которых надлежит измерить (диск, стержень, полный цилиндр и другие).
+\end{abstract}
+
+\section {Теоретическая справка} 
+    Момент инерции твердого тела рассчитывается по формуле:
+    \begin{equation}
+        I = \int r^2dm
+    \end{equation}
+    
+    Далеко не всегда удается вычислить момент инерции тела аналитически ввиду неоднородности или сложной формы, в таких случаях удобно сделать это экспериментально, например, с помощью трифилярного подвеса.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{1.png}
+    \end{figure}
+    
+    Устройство состоит из неподвижной платформы, вращающейся платформы, подвешенной на трех симметричных нитях.
+    Если пренебречь потерями энергии, то уравнение сохранения энергии при колебаниях:
+    \begin{equation}
+        \label{энергия}
+        \frac{I\dot{\varphi}^2}{2}+mg(z_0-z)=E,
+    \end{equation}
+    
+    где $I$ - момент инерции платформы и тела, $z_0$ - координата по вертикали центра нижней платформы при равновесии, $z$ - координата аналогичной точки при повороте на угол $\phi$.
+    Из уравнения \ref{энергия} видно, что колебательное движение системы происходит благодаря силе тяжести. 
+    
+    Рассмотрим точку C на верхней платформе с координатами $(r, 0, 0)$ и точку $C''$, противоположную С при повороте на $\phi$, с координатами $(R\cos(\varphi), R\sin(\varphi)), z)$
+    
+    Расстояние между ними равно длине нити:
+    \begin{equation}
+        (R\cos(\phi)-r)^2+R^2\sin^2\phi+z^2=L^2
+    \end{equation}
+    
+    Для малых углов:
+    \begin{equation}
+        z^2=L^2-R^2-r^2+2Rr\cos\varphi=z_0^2-2Rr(1-\cos\varphi)\approx z_0^2-Rr\varphi^2
+    \end{equation}
+    \begin{equation}
+        z \approx \sqrt{z_0^2-Rr\varphi^2}\approx z_0     \sqrt{1-\frac{Rr\varphi^2}{z_0^2}} \approx z_0-           \frac{Rr\varphi^2}{2z_0}
+    \end{equation}
+    
+    Подставив это в уравнение \ref{энергия}:
+    \begin{equation}
+        \frac{1}{2}I\dot{\varphi}+mg\frac{Rr}{2z_0}\varphi^2=E
+    \end{equation}
+    
+    Откуда:
+    \begin{equation}
+        \varphi=\varphi_0\sin(\sqrt{\frac{mgRr}{Iz_0}}t+\Theta)
+    \end{equation}
+    Константны определяются начальными условиями, а период колебаний системы:
+    \begin{equation}
+        T=2\pi\sqrt{\frac{Iz_0}{mgRr}}
+    \end{equation}
+    
+    Откуда не трудно определить выражение для момента инерции:
+    \begin{equation}
+        I=\frac{mgRrT^2}{4\pi^2z_0}
+    \end{equation}
+    
+    Для краткости:
+    \begin{equation}
+        I=kmT^2
+    \end{equation}
+    
+    Для постоянной k для данной установки:
+    \begin{equation}
+        k=I=\frac{gRr}{4\pi^2z_0}
+    \end{equation}
+
+
+\section {Используемое оборудование}
+    \textbf{В работе используются:} трифилярный подвес, секундомер, счетчик числа колебаний, набор тел, момент инерции которых надлежит измерить (диск, стержень, полный цилиндр и другие).
+
+
+\section {Методика измерений}
+    Воспользовавшись представленной установкой, измерим период колебаний для каждого из предложенных тел. Для этого у нас есть специальный прибор, который может считать полуколебания, либо полные колебания, собственно, что нам и нужно. Для каждого тела выполним по 3 таких измерения, по 10 полных колебаний и занесем полученные данные в таблицу. 
+    
+\section {Результаты измерений и обработка данных} 
+    
+\subsection{Измерение постоянной k для установки:}
+
+    Параметры установки:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.3\linewidth]{2.png}
+    \end{figure}
+    
+    Что самое важное в измерение постоянной, правильно - измерение ее погрешности. \\
+    
+    \\
+    
+    Для начала продифференцируем по каждому параметру:
+    
+    $$ f'(R) = \frac{ ( ( ( 0 \cdot R + g \cdot 1 ) \cdot r + ( g \cdot R ) \cdot 0 ) \cdot ( ( 4 \cdot Pi^{ 2 } ) \cdot z ) - ( ( g \cdot R ) \cdot r ) \cdot ( ( 0 \cdot Pi^{ 2 } + 4 \cdot 1 ) \cdot z + ( 4 \cdot Pi^{ 2 } ) \cdot 0 ) ) }{ ( ( 4 \cdot Pi^{ 2 } ) \cdot z )^{ 2 } } $$
+    
+    $$ f'(R) = \frac{ ( ( g \cdot r ) \cdot ( ( 4 \cdot Pi^{ 2 } ) \cdot z ) - ( ( g \cdot R ) \cdot r ) \cdot ( 4 \cdot z ) ) }{ ( ( 4 \cdot Pi^{ 2 } ) \cdot z )^{ 2 } } $$
+    
+    $$ f'(r) = \frac{ ( ( ( 0 \cdot R + g \cdot 0 ) \cdot r + ( g \cdot R ) \cdot 1 ) \cdot ( ( 4 \cdot Pi^{ 2 } ) \cdot z ) - ( ( g \cdot R ) \cdot r ) \cdot ( ( 0 \cdot Pi^{ 2 } + 4 \cdot 1 ) \cdot z + ( 4 \cdot Pi^{ 2 } ) \cdot 0 ) ) }{ ( ( 4 \cdot Pi^{ 2 } ) \cdot z )^{ 2 } } $$
+    
+    $$ f'(r) = \frac{ ( ( g \cdot R ) \cdot ( ( 4 \cdot Pi^{ 2 } ) \cdot z ) - ( ( g \cdot R ) \cdot r ) \cdot ( 4 \cdot z ) ) }{ ( ( 4 \cdot Pi^{ 2 } ) \cdot z )^{ 2 } } $$
+    
+    $$ f'(z) = \frac{ ( ( ( 0 \cdot R + g \cdot 0 ) \cdot r + ( g \cdot R ) \cdot 0 ) \cdot ( ( 4 \cdot Pi^{ 2 } ) \cdot z ) - ( ( g \cdot R ) \cdot r ) \cdot ( ( 0 \cdot Pi^{ 2 } + 4 \cdot 1 ) \cdot z + ( 4 \cdot Pi^{ 2 } ) \cdot 1 ) ) }{ ( ( 4 \cdot Pi^{ 2 } ) \cdot z )^{ 2 } } $$
+    
+    $$ f'(z) = \frac{ ( 0 - ( ( g \cdot R ) \cdot r ) \cdot ( 4 \cdot z + 4 \cdot Pi^{ 2 } ) ) }{ ( ( 4 \cdot Pi^{ 2 } ) \cdot z )^{ 2 } } $$
+    
+    Ну и теперь воспользуемся формулой подсчета погрешности косвенных измерений:
+    
+    $$ dk = ( ( ( ( ( \frac{ ( ( g \cdot r ) \cdot ( ( 4 \cdot Pi^{ 2 } ) \cdot z ) - ( ( g \cdot R ) \cdot r ) \cdot ( 4 \cdot z ) ) }{ ( ( 4 \cdot Pi^{ 2 } ) \cdot z )^{ 2 } } \cdot dR )^{ 2 } +$$$$ + ( \frac{ ( ( g \cdot R ) \cdot ( ( 4 \cdot Pi^{ 2 } ) \cdot z ) - ( ( g \cdot R ) \cdot r ) \cdot ( 4 \cdot z ) ) }{ ( ( 4 \cdot Pi^{ 2 } ) \cdot z )^{ 2 } } \cdot dr )^{ 2 } ) +$$ $$+ ( \frac{ ( 0 - ( ( g \cdot R ) \cdot r ) \cdot ( 4 \cdot z + 4 \cdot Pi^{ 2 } ) ) }{ ( ( 4 \cdot Pi^{ 2 } ) \cdot z )^{ 2 } } \cdot dz )^{ 2 } ) + ( \frac{ ( 0 - ( ( g \cdot R ) \cdot r ) \cdot ( ( 4 \cdot ( 2 \cdot Pi ) ) \cdot z ) ) }{ ( ( 4 \cdot Pi^{ 2 } ) \cdot z )^{ 2 } } \cdot dPi )^{ 2 } ) +$$ $$+ ( \frac{ ( ( R \cdot r ) \cdot ( ( 4 \cdot Pi^{ 2 } ) \cdot z ) - ( ( g \cdot R ) \cdot r ) \cdot ( 4 \cdot z ) ) }{ ( ( 4 \cdot Pi^{ 2 } ) \cdot z )^{ 2 } } \cdot dg )^{ 2 } )^{ 0.5 } = 0.027708 \text{ мм}$$ 
+    
+    А вам не интересно как будет выглядеть график зависимости погрешности при изменении радиуса платформы [0; 10] мм, мне вот интересно, поэтому давайте построим его:
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{dk.png}
+    \end{figure}
+    
+    Давайте теперь повысим отрезок радиуса до [0; 120] мм: 
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{dk1.png}
+    \end{figure}
+    
+    Можем заметить, при радиусе установки 5 мм погрешность минимальна, почему пластины не такого радиуса!? \\
+    
+    
+    Время перейти к подсчету самой постоянной, сделаем мы это по формуле (11), тогда окончательно получаем:
+    
+    \[
+        k = \frac{ ( ( 9.8 \cdot 114.6 ) \cdot 30.2 ) }{ ( ( 4 \cdot 3.14^{ 2 } ) \cdot 2230.1 ) } = 0.385633 \pm 0.027708
+    \] \\
+    
+    
+    Построим график зависимости k от R:
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{k.png}
+    \end{figure}
+    
+    Ну и что, что он линейный, не важно... \\
+    
+    На самом деле это все далеко не легко, примерно так выглядит подсчет погрешности и результат дифференцирования:  
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{graph0.png}
+    \end{figure}
+    
+    Даже сама функция представляется не маленьким графом:
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.55\linewidth]{graph.png}
+    \end{figure}
+    
+\subsection{Измерение моментов инерции тел}
+    
+    Воспользовавшись формулой (10), давайте посчитаем моменты инерции всех представленных тел:
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{3.png}
+    \end{figure}
+    
+
+    \[
+        I_{\text{диск}} = (2.15 \pm 0.24) \cdot 10^{-3} \text{ кг $\cdot$ м$^2$}
+    \]
+    
+    \[
+        I_{\text{палка}} = \: (5.74 \pm 0.23) \cdot 10^{-3} \text{ кг $\cdot$ м$^2$}
+    \]
+    
+    \[
+        I_{\text{цилиндр полый}} = (4.45 \pm 0.16) \cdot 10^{-3} \text{ кг $\cdot$ м$^2$}
+    \]
+    
+    \[
+        I_{\text{кастрюля}} = (6.85 \pm 0.18) \cdot 10^{-3} \text{ кг $\cdot$ м$^2$}
+    \]
+    
+    \[
+        I_{\text{половинки}} = (4.26 \pm 0.13) \cdot 10^{-3} \text{ кг $\cdot$ м$^2$}
+    \]
+    
+    \[
+        I_{\text{кастрюлька с пельмешками}} = (11.62 \pm 0.22) \cdot 10^{-3} \text { кг $\cdot$ м$^2$}
+    \]
+    
+\subsection{Гюйгенс Штейнер}
+    
+    Теперь воспользуемся половинками не полого цилиндра. Будем раздвигать их как показано на картинке (одновременно):
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.35\linewidth]{5.png}
+    \end{figure}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.85\linewidth]{6.png}
+    \end{figure}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{8.png}
+    \end{figure}
+    
+    Зафиксируем одну половинку и проделаем тоже самое:
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.85\linewidth]{7.png}
+    \end{figure}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{9.png}
+    \end{figure}
+    
+    Можем убедиться, что во втором случае момент инерции изменяется медленнее.
+    
+
+\section {Обсуждение результатов}
+    Все выше полученные результаты можно считать довольно точными, так как лежат в пределах погрешности. 
+    
+\section {Заключение}
+    Мы провели лабораторную работу, которая требует минимума человеческого вмешательства, но при этом полностью раскрывает физику.
+    
+\end{document}

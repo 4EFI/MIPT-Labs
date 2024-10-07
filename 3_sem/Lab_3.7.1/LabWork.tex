@@ -1,0 +1,303 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper,
+total={170mm,257mm},left=2cm,right=2cm,
+top=1cm,bottom=2cm}
+
+\usepackage{mathtext}
+\usepackage{amsmath}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx, float}
+\usepackage{tabularx, colortbl}
+\usepackage{caption}
+\captionsetup{labelsep=period}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{mathtext}
+\usepackage{amsmath}
+\usepackage{siunitx} % Required for alignment
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{afterpage}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{caption}
+\usepackage[arrowdel]{physics}
+\usepackage{booktabs}
+
+\newcommand{\parag}[1]{\paragraph*{#1:}}
+\DeclareSymbolFont{T2Aletters}{T2A}{cmr}{m}{it}
+\newcounter{Points}
+\setcounter{Points}{1}
+\newcommand{\point}{\arabic{Points}. \addtocounter{Points}{1}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\author{Костылев Влад, Б01-208}
+\date{\today}
+\title{Отчет о выполнении лабораторной работы 3.7.1 \\ \textbf{Скин–эффек} }
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+    \textbf{Цель работы:} исследовать явление проникновение переменного магнитного поля в медный полый цилиндр.\\
+    
+    \textbf{В работе используются:} генератор сигналов АКИП–3420, соленоид, намотанный на полый цилиндрический каркас, медный экран в виде полого цилиндра, измерительная катушка, амперметр, вольтметр, двухканальный осциллограф GOS–620, RLC-метрю.
+\end{abstract}
+
+\section {Теоретическая справка} 
+     В работе изучается скин-эффект в длинном тонкостенном медном цилиндре, помещённом внутрь соленоида.
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.25\linewidth]{2.png}
+    \end{figure}
+    
+    Рассмотрим квазистационарное поле внутри проводящей среды в простейшем плоском случае.
+    Пусть вектор $\vb*{E}$ направлен всюду вдоль оси $y$
+    и зависит только от координаты $x$, т. е. ${E_x} = {E_z} \equiv 0$, $E_y=E_y(x,t)$.
+    В квазистационарном приближении 
+    \begin{equation}
+        [\grad \times H] = \sigma E
+    \end{equation}
+    
+    Берем ротор обоих частей:
+    \begin{equation}
+        \grad \times [\grad \times H] = \grad(\grad \cdot H) - \grad^2H = \sigma [\grad \times E]
+    \end{equation}
+    Используя уравнение Максвелла для ротора $E$ и для дивергенции $H$ получаем
+    \begin{equation}
+        \grad^2 H = \sigma\mu\mu_0\frac{\partial H}{\partial t} 
+                          + \grad(\grad \cdot H) = \sigma\mu\mu_0\frac{\partial H}{\partial t} 
+        \label{eq:laplacian_H}
+    \end{equation}
+    Берем ротор еще раз
+    \begin{equation}
+        \grad \times (\grad^2 H) = \grad^2 (\grad \times \vb*{H}) =
+        \sigma\mu\mu_0 \frac{\partial (\grad \times \vb*{H})}{\partial t}
+    \end{equation}
+    
+    Осталось подставить первое уравнение, и воспользоваться уравнением Максвелла:
+    \begin{equation}
+        \grad^2 E =\sigma\mu\mu_0 \frac{\partial E}{\partial t}
+    \end{equation}
+    
+    Подставляем в (\ref{eq:diffusion}) наше электрическое поле $E_y=E_y(x,t)$
+    \begin{equation}
+        \frac{\partial^2 E_y}{\partial x^2} = \sigma\mu\mu_0\frac{\partial E_y}{\partial t}
+        \label{eq:diffusion_chastni}
+    \end{equation}
+    Если $E_y(0,t)=E_0 e^{i\omega t}$ то решением (\ref{eq:diffusion_chastni}) будет функция вида
+    \begin{equation}
+        E_y(x,t)=E_0 e^{-x/\delta} e^{i(\omega t - x/\delta)}
+        \label{eq:skin_effect_poluprostranstvo}
+    \end{equation}
+    где
+    \begin{equation}
+        \delta = \sqrt{\frac{2}{\omega\sigma\mu\mu_0}}
+        \label{eq:delta}
+    \end{equation} \\
+    
+    Перейдем теперь к описанию скин-эффекту в длинном тонкостенном медном цилиндре.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.3\linewidth]{1.png}
+        \includegraphics[width=0.25\linewidth]{3.png}
+    \end{figure}    
+    
+    Из соображении симметрии и непрерывности соответствующих компонент векторов $E$ и $H$ можем сказать что:
+    \begin{equation}
+        H_z = H(r)e^{i\omega t} \text{, } E_\varphi = E(r)e^{i\omega t}
+    \end{equation}
+    и при этом функции $H(r)$ и $E(r)$ непрерывны.
+    
+    Внутри цилиндра токов нет, следовательно $H(r)=H_1=\text{const}$ внутри цилиндра.
+    По теореме об электромагнитной индукции
+    \begin{equation*}
+        E(r) = -\frac{1}{2}\mu_0 r \cdot i \omega H_1
+    \end{equation*}
+    откуда мы получаем граничное условие
+    \begin{equation}
+        E_1=E(a)= -\frac{1}{2}\mu_0 a \cdot i \omega H_1
+        \label{eq:granichnoe_uslovie_E}
+    \end{equation}
+    
+    В приближении $h \ll a$ можем пренебречь кривизной стенки и смоделировать 
+    его бесконечной полосой. Тогда, надо решить уравнение (\ref{eq:laplacian_H})
+    с граничными условиями. Решая уравнение получим связь полей $H_1$ 
+    (поле внутри цилиндра которое мы будем измерять) и $H_2$, которое колеблется с частотой
+    $\omega$
+    
+    \begin{equation}
+        H_1 = \frac{H_0}{\ch(\alpha h) + \frac{1}{2} \alpha a \sh(\alpha h)} 
+        \text{\ \ \ }
+        \alpha = \sqrt{i\omega \sigma \mu_0} = \frac{\sqrt{2}}{\delta}e^{i\pi/4}
+        \label{eq:svyaz_poley}
+    \end{equation}
+    
+    из этой формулы получим сколько по фазе отстает поле $H_1$ от $H_0$. При $\delta \ll h$
+    (высокочастотная область)
+    
+    \begin{equation}
+        \psi \approx \frac{\pi}{4} + \frac{h}{\delta} = 
+        \frac{\pi}{4} + h \sqrt{\frac{\omega \sigma \mu_0}{2}}
+        \label{eq:faza_high_freq}
+    \end{equation}
+    
+    При $\delta \gg h$ (низкочастотная область)
+    
+    \begin{equation}
+        \tan \psi \approx \frac{ah}{\delta^2} = \pi a h \sigma \mu \mu_0 \nu
+        \label{eq:faza_low_freq}
+    \end{equation}
+    
+
+\section {Используемое оборудование}    
+    \textbf{В работе используются:} генератор сигналов АКИП–3420, соленоид, намотанный на полый цилиндрический каркас, медный экран в виде полого цилиндра, измерительная катушка, амперметр, вольтметр, двухканальный осциллограф GOS–620, RLC-метрю.
+
+
+% \section {Методика измерений}
+% C:\Users\kvv20\OneDrive\Документы\MIPT\Labs\Lab_3.7.1
+        
+\section {Результаты измерений и обработка данных} 
+    Построим график в координатах $1/\xi^2 = f(\nu^2)$:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.85\linewidth]{4.png}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{5.png}
+    \end{figure}
+
+    Из графика видно, что при $\nu = 0$:
+    \[
+        \xi_0 = \frac{1}{\sqrt{4902.3}} = 0.01428 Ом/Гц,
+    \]
+
+    где $\xi_0$ - коэффициент пропорциональности между $\xi = \dfrac{U}{\nu I}$ и коэффициентом ослабления магнитного поля $|H_1|/|H_0|$.
+
+    \[
+        \dfrac{1}{\xi^2} = k \nu^2 + b^2, k = \pi ah\sigma\mu_0 b
+    \]
+
+    \[
+        \sigma_1 = \dfrac{k}{\pi a h \mu_0 b} = \dfrac{0.207}{3.14*0.021*0.0015*4*3.14*10^{-7}*\sqrt{4902.7}} = (24.7 \pm 5.2) МСм/м 
+    \]
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.95\linewidth]{6.png}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{7.png}
+    \end{figure}
+
+    Далее построим график зависимости \textbf{фазового сдвига} (из предыдущих данных) от частоты $\tg \psi = f(\nu)$ (не забудем учесть $\pi/2$):
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{8.png}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{9.png}
+    \end{figure}
+
+    (Видим, что при высоких частотах - больший разброс, поэтому будем использовать первый график).
+
+    \[
+        \tan \psi = k, k = \pi ah \sigma \mu_0
+    \]
+    \[
+        \sigma_2 = \dfrac{k}{\pi ah \mu_0} = \dfrac{0.0073}{3.14*0.021*0.0015*4*3.14*10^{-7}} = (58.7 \pm 3.1) МСм/м
+    \]
+
+    Проделаем похожие действия, только при $\psi - \pi/4 = f(\sqrt(\nu))$:
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.95\linewidth]{11.png}
+    \end{figure}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{10.png}
+    \end{figure}
+
+    \[
+        \tan \psi - \dfrac{\pi}{4} = \sqrt{k}, k = h \sqrt{\pi a \sigma \mu_0}
+    \]
+    \[
+        \sigma_3 = \dfrac{k^2}{\pi ah \mu_0} = \dfrac{0.0505^2}{3.14*0.0015^2*4*3.14*10^{-7}} = 287 МСм/м
+    \]
+
+    Теперь построим \textbf{график зависимости индуктивности катушки} от частоты $L(\nu)$:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{12.png}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{13.png}
+    \end{figure}
+
+    Откуда:
+    \[
+        L_{max} = 9,85 мГн \;\;\;\;\;\;\;\;\; L_{min} = 2,89 мГн
+    \]
+
+    Построим теперь следующий график:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\linewidth]{14.png}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{16.png}
+    \end{figure}
+
+    \[
+        k = (\pi ah \sigma \mu_0)^2
+    \]
+
+    \[
+        \sigma_4 = \dfrac{\sqrt{k}}{\pi ah \mu_0} = \dfrac{\sqrt{0,00005854}}{3.14*0.021*0.0015*4*3.14*10^{-7}} = (61.6 \pm 4.8) МСм/м
+    \]
+
+    %Табличное значение
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\linewidth]{15.png}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{17.png}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{18.png}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{19.png}
+    \end{figure}
+    
+    
+\section {Заключение}
+    В заключение можно сказать, что в данной лабораторной работе мы научились исследовать явление проникновение переменного магнитного поля в медный полый цилиндр.
+    
+\end{document}
+    
